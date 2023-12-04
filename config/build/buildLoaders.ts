@@ -6,11 +6,13 @@ export function buildLoaders({mode}: BuildOptions): ModuleOptions["rules"] {
     const isDev = getIsDev(mode)
 
     const scssLoader: Loader = {
-        test: /\.(sc|sa|c)ss$/, use: [
+        test: /\.(sc|sa|c)ss$/,
+        use: [
             isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader",
             "sass-loader"
-        ]
+        ],
+
     }
     const tsLoader: Loader = {
         test: /\.tsx?$/,
