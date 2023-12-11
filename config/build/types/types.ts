@@ -5,18 +5,24 @@ export interface BuildPaths {
     entry: string,
     output: string,
     html: string,
-
+    src: string
 }
+
+type BuildPlatform = "mobile" | "desktop"
+type Port = DevServerConfiguration["port"]
 
 export interface TEnv {
     mode: webpack.Configuration["mode"],
-    port: DevServerConfiguration["port"]
+    port: Port,
+    platform: BuildPlatform,
 }
 
 export interface BuildOptions {
-    port?: number,
+    port?: Port,
     paths: BuildPaths,
-    mode: webpack.Configuration["mode"]
+    mode: webpack.Configuration["mode"],
+    platform: BuildPlatform,
+
 }
 
 export function getIsDev(mode: webpack.Configuration["mode"]): boolean {

@@ -17,10 +17,13 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
             filename: "bundle.[fullhash].js"
         },
         plugins: buildPlugins(options),
+        watchOptions: {
+            ignored: "/node_modules/"
+        },
         module: {
             rules: buildLoaders(options)
         },
-        resolve: buildResolve(),
+        resolve: buildResolve(options),
         devServer: isDev ? buildDevServer(options) : undefined,
         devtool: isDev ? "inline-source-map" : false
     }

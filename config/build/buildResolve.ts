@@ -1,7 +1,11 @@
 import webpack from "webpack";
+import {BuildOptions} from "./types/types";
 
-export function buildResolve(): webpack.Configuration["resolve"] {
+export function buildResolve(options: BuildOptions): webpack.Configuration["resolve"] {
     return {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            "@": options.paths.src
+        }
     }
 }

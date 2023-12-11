@@ -1,5 +1,9 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import c from "./App.module.scss"
+import {Link, Outlet} from "react-router-dom";
+import DinoPng from "@/assets/dino.png"
+import DinoJpg from "@/assets/dino.jpeg"
+import DinoSvg from "@/assets/dino.svg"
 
 const App = () => {
     const [count, setCount] = useState<number>(0)
@@ -14,14 +18,34 @@ const App = () => {
 
     return (
         <div style={{marginTop: 30}}>
+            <nav>
+                <Link to={"/"}>Main page</Link>
+                <Link to={"/about"}>About</Link>
+                <Link to={"/policy"}>Policy</Link>
+            </nav>
+            <div className={c.count}>{count}</div>
             <div>
-                <button className={c.button} onClick={increment}>+</button>
-                <button className={c.button} onClick={decrement}>-</button>
+                <button className={c.button} onClick={increment}>
+                    <span>+</span>
+                </button>
+                <button className={c.button} onClick={decrement}>
+                    <span>-</span>
+                </button>
+                <div>
+                    <img src={DinoPng} alt="DinoPng" width={100} height={100}/>
+                    <img src={DinoJpg} alt="DinoJpg" width={100} height={100}/>
+                    <div>
+                        <DinoSvg fill={"black"}/>
+                    </div>
+                </div>
             </div>
-            <div>
-                Hello world! {count}
+            <div>Hello world!</div>
+
+            <div id="children">
+                <Outlet/>
             </div>
         </div>
+
     );
 };
 

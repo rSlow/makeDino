@@ -1,0 +1,64 @@
+$size: 72px;
+$outerOffset: 6px;
+$innerOffset: 14px;
+
+@mixin spinAnimation($time) {
+  animation: spin $time linear infinite;
+}
+
+@mixin loaderBorder {
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+
+@mixin offset($offset) {
+  top: $offset;
+  left: $offset;
+  right: $offset;
+  bottom: $offset;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  & > div {
+    position: relative;
+
+    height: $size;
+    width: $size;
+
+    @include loaderBorder;
+    border-top-color: #A04668;
+    @include spinAnimation(2s);
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      @include loaderBorder;
+    }
+
+    &:before {
+      border-top-color: #254E70;
+      @include spinAnimation(3s);
+      @include offset($outerOffset);
+    }
+
+    &:after {
+      border-top-color: #eed056;
+      @include offset($innerOffset);
+      @include spinAnimation(4s);
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

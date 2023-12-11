@@ -7,6 +7,30 @@
   font-weight: 800;
 
   span {
-    background: green;
+    background: gray;
+    font-size: 20px;
   }
 }
+
+.span {
+  background: yellow;
+}
+
+.count {
+  margin: 10px 0;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  column-gap: 10px;
+
+  > * {
+    border: 1px black solid;
+    padding: 10px;
+  }
+
+}
+
