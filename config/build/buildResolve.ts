@@ -5,7 +5,8 @@ export function buildResolve(options: BuildOptions): webpack.Configuration["reso
     return {
         extensions: ['.tsx', '.ts', '.js'],
         alias: {
-            "@": options.paths.src
+            "@": options.paths.src,
+            "$": options.paths.public,
         }
     }
 }

@@ -5,7 +5,8 @@ export interface BuildPaths {
     entry: string,
     output: string,
     html: string,
-    src: string
+    src: string,
+    public: string,
 }
 
 type BuildPlatform = "mobile" | "desktop"
@@ -22,7 +23,6 @@ export interface BuildOptions {
     paths: BuildPaths,
     mode: webpack.Configuration["mode"],
     platform: BuildPlatform,
-
 }
 
 export function getIsDev(mode: webpack.Configuration["mode"]): boolean {

@@ -1,15 +1,16 @@
 import {createRoot} from "react-dom/client";
 import App from "./components/App";
-import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {About} from "@/pages/About";
 import {Policy} from "@/pages/Policy";
 import Suspender from "@/HOC/Suspender/Suspender";
 
-const root = document.getElementById("root")
+const rootHTML = document.getElementById("root")
 
-if (!root) {
-    throw new Error("root element not found")
+if (!rootHTML) {
+    throw new Error("root HTML element not found")
 }
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -27,6 +28,6 @@ const router = createBrowserRouter([
     },
 ]);
 
-const container = createRoot(root)
+const rootReact = createRoot(rootHTML)
 
-container.render(<RouterProvider router={router}/>)
+rootReact.render(<RouterProvider router={router}/>)

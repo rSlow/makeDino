@@ -34,3 +34,25 @@ nav {
 
 }
 
+.svg {
+  @keyframes svg_anim {
+    0% {
+      scale: 1;
+    }
+    50% {
+      scale: 3;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+  @keyframes svg_spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  animation: svg_anim 2s ease-in-out infinite, svg_spin 97s infinite linear;
+}

@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions, getIsDev} from "./types/types";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import path from "path";
 
 // import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 
@@ -12,7 +13,8 @@ export function buildPlugins({mode, paths}: BuildOptions): webpack.Configuration
 
     const plugins: webpack.Configuration["plugins"] = [
         new HtmlWebpackPlugin({
-            template: paths.html
+            template: paths.html,
+            favicon: path.resolve(paths.public, "favicon.ico")
         }),
         new webpack.DefinePlugin({}),
     ]

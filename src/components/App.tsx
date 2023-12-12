@@ -35,7 +35,7 @@ const App = () => {
                     <img src={DinoPng} alt="DinoPng" width={100} height={100}/>
                     <img src={DinoJpg} alt="DinoJpg" width={100} height={100}/>
                     <div>
-                        <DinoSvg fill={"black"}/>
+                        <DinoSvg className={c.svg} fill={"black"}/>
                     </div>
                 </div>
             </div>
