@@ -1,9 +1,10 @@
 import {createRoot} from "react-dom/client";
-import App from "./components/App";
+import App from "@/components/App";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {About} from "@/pages/About";
 import {Policy} from "@/pages/Policy";
 import Suspender from "@/HOC/Suspender/Suspender";
+import "@/reset.scss"
 
 const rootHTML = document.getElementById("root")
 

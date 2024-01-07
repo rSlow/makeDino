@@ -1,0 +1,10 @@
+.navbar {
+  padding: 10px;
+  display: flex;
+  column-gap: 10px;
+
+  & > a {
+    padding: 10px;
+    border: 1px black solid;
+  }
+}
